@@ -1,0 +1,12 @@
+mailman {
+	# cat=backend//; type=string; label=Mailman password: The admin password you set for Mailman
+	mailmanpassword = restpass
+
+
+	# cat=backend//; type=string; label=Mailman user: The admin user you set for Mailman
+	mailmanuser = restadmin
+
+	# cat=backend//; type=string; label=Mailman hostaddress: address of the Mailman REST API
+	mailmanhost = http://localhost:8001/3.1/
+}
+

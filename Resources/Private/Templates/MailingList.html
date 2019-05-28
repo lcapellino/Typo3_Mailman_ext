@@ -1,0 +1,23 @@
+<table border="1" cellspacing="1" cellpadding="5">
+   <tr>
+      <td>Listen name</td>
+      <td>Full Qualified Domain Name</td>
+      <td>Anzahl Nutzer</td>
+   </tr>
+      <!--<tr>
+         <td align="top">{list.json.entries.0.fqdn_listname}</td>
+      </tr>-->
+
+	<f:for each="{list.json.entries}" as="mailinglist">
+		<tr>
+			<td align="top">{mailinglist.display_name}</td>	
+         <td align="top"><a href="#">{mailinglist.fqdn_listname}</a></td>
+			<td align="top">{mailinglist.member_count}</td>
+		</tr>
+	</f:for>
+</table>
+
+
+
+<f:debug>{list}</f:debug>
+<f:debug>{list.json.entries.0}</f:debug>

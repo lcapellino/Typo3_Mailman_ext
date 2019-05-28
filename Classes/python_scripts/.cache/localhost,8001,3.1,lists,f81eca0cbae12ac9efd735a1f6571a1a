@@ -1,0 +1,8 @@
+status: 200
+content-length: 1325
+content-location: http://localhost:8001/3.1/lists
+content-type: application/json
+date: Tue, 28 May 2019 13:59:39 GMT
+server: WSGIServer/0.2 CPython/3.5.3
+
+{"entries": [{"description": "", "display_name": "Test", "fqdn_listname": "test@ct-gi.syslab.in.htwg-konstanz.de", "http_etag": "\"adb82bf542547ddb06c118d952ee66c729d01ba7\"", "list_id": "test.ct-gi.syslab.in.htwg-konstanz.de", "list_name": "test", "mail_host": "ct-gi.syslab.in.htwg-konstanz.de", "member_count": 2, "self_link": "http://localhost:8001/3.1/lists/test.ct-gi.syslab.in.htwg-konstanz.de", "volume": 1}, {"description": "", "display_name": "Test1", "fqdn_listname": "test1@ct-gi.syslab.in.htwg-konstanz.de", "http_etag": "\"99a96e33419512eadaefc8abd83650c492ad6105\"", "list_id": "test1.ct-gi.syslab.in.htwg-konstanz.de", "list_name": "test1", "mail_host": "ct-gi.syslab.in.htwg-konstanz.de", "member_count": 2, "self_link": "http://localhost:8001/3.1/lists/test1.ct-gi.syslab.in.htwg-konstanz.de", "volume": 1}, {"description": "", "display_name": "Test2", "fqdn_listname": "test2@ct-gi.syslab.in.htwg-konstanz.de", "http_etag": "\"a7ae3e26a93f641e94b211cd00f67dacea200711\"", "list_id": "test2.ct-gi.syslab.in.htwg-konstanz.de", "list_name": "test2", "mail_host": "ct-gi.syslab.in.htwg-konstanz.de", "member_count": 0, "self_link": "http://localhost:8001/3.1/lists/test2.ct-gi.syslab.in.htwg-konstanz.de", "volume": 1}], "http_etag": "\"a5e59c828efd27eb4691b3207c9f4abc8a23bc0b\"", "start": 0, "total_size": 3}
