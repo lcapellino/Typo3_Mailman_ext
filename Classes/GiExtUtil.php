@@ -1,5 +1,5 @@
 <?php
-namespace Htwg\GiMailman;
+namespace Htwg\MailmanExt;
 
 class GiExtUtil{
 	const PYTHON_SCRIPTS_DIR = __DIR__. '/python_scripts/';

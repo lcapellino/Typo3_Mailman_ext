@@ -1,17 +1,17 @@
 page = PAGE
 
 page.config.contentObjectExceptionHandler = 0
-plugin.tx_gimailman.settings{
+plugin.tx_mailmanext.settings{
     usermail = user@mailde
 }
 
 temp.mailman = USER
 temp.mailman {
     userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-    extensionName = GiMailman
+    extensionName = MailmanExt
     pluginName = Pi1
     vendorName = Htwg
-    controller = GiMailman
+    controller = MailmanExt
     action = list
 
     view < plugin.tx_gimailman.view

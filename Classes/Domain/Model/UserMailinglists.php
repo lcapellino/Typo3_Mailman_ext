@@ -1,5 +1,5 @@
 <?php
-namespace Htwg\GiMailman\Domain\Model;
+namespace Htwg\MailmanExt\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\Http\RequestFactory;
 
 
  	public function __construct($mail){
- 		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['gi_mailman']);
+ 		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mailmanext']);
         $this->mailmanHost = $extensionConfiguration['mailman.']['mailmanhost'];
         $this->mailmanUser = $extensionConfiguration['mailman.']['mailmanuser'];
         $this->mailmanPassword = $extensionConfiguration['mailman.']['mailmanpassword'];

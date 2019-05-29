@@ -6,7 +6,7 @@ call_user_func(function()
    /**
     * Extension key
     */
-   $extensionKey = 'gi_mailman';
+   $extensionKey = 'mailmanext';
 
    /**
     * Default TypoScript
@@ -14,6 +14,6 @@ call_user_func(function()
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
       $extensionKey,
       'Configuration/TypoScript',
-      'GiMailman'
+      'MailmanExt'
    );
 });

@@ -1,5 +1,5 @@
 {
-    "name": "htwg/gi-mailman",
+    "name": "htwg/gi-mailmanext",
     "type": "typo3-cms-extension",
     "description": "",
     "homepage": "https://htwg-konstanz.de",
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Htwg\\GiMailman\\": "Classes/"
+            "Htwg\\MailmanExt\\": "Classes/"
         }
     }
 }

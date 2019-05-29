@@ -1,12 +1,12 @@
 <?php
 
-namespace Htwg\GiMailman\Controller;
+namespace Htwg\MailmanExt\Controller;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use Htwg\GiMailman\Domain\Model\Mailinglists;
+use Htwg\MailmanExt\Domain\Model\Mailinglists;
 
 
-class GiMailmanController extends ActionController
+class MailmanExtController extends ActionController
 {
  
     
