@@ -8,13 +8,13 @@ plugin.tx_mailmanext.settings{
 temp.mailman = USER
 temp.mailman {
     userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-    extensionName = MailmanExt
+    extensionName = Mailmanext
     pluginName = Pi1
     vendorName = Htwg
     controller = MailmanExt
-    action = list
+    action = mailinglist
 
-    view < plugin.tx_gimailman.view
+    view < plugin.tx_mailmanext.view
     
 }
 page.1 < temp.mailman

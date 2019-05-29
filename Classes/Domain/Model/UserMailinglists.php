@@ -1,5 +1,5 @@
 <?php
-namespace Htwg\MailmanExt\Domain\Model;
+namespace Htwg\Mailmanext\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

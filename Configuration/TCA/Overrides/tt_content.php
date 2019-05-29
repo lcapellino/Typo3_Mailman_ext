@@ -1,7 +1,7 @@
 <?php
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'Htwg.MailmanExt',
+    'Htwg.Mailmanext',
     'Pi1',
     'Mailman Mailinglists',
-    'EXT:gi_mailman/ext_icon.png'
+    'EXT:mailmanext/ext_icon.png'
 );

@@ -1,8 +1,4 @@
 <?php
-
-/**
- * Extension Manager/Repository config file for ext "gi_mailman".
- */
 $EM_CONF[$_EXTKEY] = [
     'title' => 'mailmanext',
     'description' => 'An extension to manage mailman mailinglists',
@@ -18,7 +14,7 @@ $EM_CONF[$_EXTKEY] = [
     ],
     'autoload' => [
         'psr-4' => [
-            'Htwg\\MailmanExt\\' => 'Classes'
+            'Htwg\\Mailmanext\\' => 'Classes'
         ],
     ],
     'state' => 'alpha',

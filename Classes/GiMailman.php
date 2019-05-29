@@ -1,5 +1,5 @@
 <?php
-namespace Htwg\GiMailman;
+namespace Htwg\MailmanExt;
 
 require_once(__DIR__.'/GiExtUtil.php');
 
