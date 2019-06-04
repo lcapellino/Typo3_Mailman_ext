@@ -6,8 +6,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use Htwg\Mailmanext\Domain\Model\Mailinglists;
 
 
-class MailmanExtController extends ActionController
-{
+class MailmanExtController extends ActionController{
  
     
     /**
@@ -15,15 +14,24 @@ class MailmanExtController extends ActionController
      *
      * @return void
      */
-    public function mailingListAction()
-    {
-
-        $list = new Mailinglists('test@asdf.de');
+    public function mailingListAction(){
+		$usermail = $this->settings['usermail'];
+//		$usermail = 'test@asdf.de';
+        $list = new Mailinglists($usermail);
         //$list = $this;
         $this->view->assign('list', $list);
     }
 
+    public function subscribeAction(){
+		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mailmanext']);
+        $redirectAddr = $extensionConfiguration['redirectAddr'];
+        //$this->redirectToUri($redirectAddr);
+		$this->view->assign('param', $this->request->getArguments());
+    }
 
+	public function unsubscribeListAction(){
+		$this->view->assign('param', $this->request->getArguments());
+    }
 
     public function subscribe() {
         return \GiExtUtil::exec("subscribeUserToMailinglist.py test1@ct-gi.syslab.in.htwg-konstanz.de test@asdf.de 12345");;

@@ -9,4 +9,5 @@ mailman {
 	# cat=backend//; type=string; label=Mailman hostaddress: address of the Mailman REST API
 	mailmanhost = http://localhost:8001/3.1/
 }
-
+# cat=backend//; type=string; label=Redirect address: the address to redirect to after a subscription
+redirectAddr = http://localhost/index.php?id=1
