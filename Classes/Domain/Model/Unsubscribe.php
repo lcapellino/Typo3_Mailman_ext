@@ -25,6 +25,7 @@ use TYPO3\CMS\Core\Http\RequestFactory;
 
 		$requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
 		$url = $this->mailmanHost. 'lists/'.$this->list_id.'/member/'.$this->mail;
+		
 		$additionalOptions = [
 	   // Additional headers for this specific request
 	   'headers' => ['Cache-Control' => 'no-cache'],

@@ -22,9 +22,10 @@ use TYPO3\CMS\Core\Http\RequestFactory;
         $this->mail = $mail;
         $this->list_id = $list_id;
 
-
+        
 		$requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
 		$url = $this->mailmanHost. 'members';
+		
 		$additionalOptions = [
 	   // Additional headers for this specific request
 	   'headers' => ['Cache-Control' => 'no-cache'],
@@ -49,6 +50,5 @@ use TYPO3\CMS\Core\Http\RequestFactory;
 	   		}
 		}
 		$this->json =  json_decode($content);
-	
 	}
  }
