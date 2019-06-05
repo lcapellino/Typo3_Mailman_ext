@@ -1,6 +1,3 @@
-
-<a href='<f:uri.action action="subscribe" controller="MailmanExt" arguments="{foo: 'bar'}"/>'>subscribe</a>
-
 <table border="1" cellspacing="1" cellpadding="5">
    <tr>
 		<td>Listen name</td>
@@ -11,21 +8,19 @@
 	<f:for each="{list.allMailinglists.entries}" as="mailinglist">
 		<tr>
 			<td align="top">{mailinglist.display_name}</td>	
-         <td align="top">{mailinglist.fqdn_listname}</td>
+         	<td align="top">{mailinglist.fqdn_listname}</td>
 			<td align="top">{mailinglist.member_count}</td>
 			<td>
 
 
-<f:debug>{mailinglist.userInList}</f:debug>
-<f:if condition="{mailinglist.userInList}">
-{mailinglist.userInList}
-<f:then>
-	<f:link.action action="unsubscribe" controller="MailmanExt" arguments="{fqdn_listname: '{mailinglist.fqdn_listname}'}">unsubscribe</f:link.action>
-</f:then>
-<f:else>
-	<f:link.action action="subscribe" controller="MailmanExt" arguments="{fqdn_listname: '{mailinglist.fqdn_listname}'}">subscribe</f:link.action>
-</f:else>
-</f:if>
+				<f:if condition="{mailinglist.userInList}">
+					<f:then>
+						<f:link.action action="unsubscribe" controller="MailmanExt" arguments="{fqdn_listname: '{mailinglist.list_id}'}">unsubscribe</f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.action action="subscribe" controller="MailmanExt" arguments="{fqdn_listname: '{mailinglist.list_id}'}">subscribe</f:link.action>
+					</f:else>
+				</f:if>
 
 
 
@@ -36,4 +31,5 @@
 
 
 
-<f:debug>{list.allMailinglists.entries}</f:debug>
+<f:debug>{list}</f:debug>
+
