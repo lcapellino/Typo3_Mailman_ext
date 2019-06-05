@@ -1,4 +1,3 @@
-Sitepackage for the project "gi mailman"
+Typo3 Mailman Extension
 ==============================================================
-
-Add some explanation here.
+This Typo3 Extension provides basic functionalities to subscribe or unsubscribe an email to a mailinglist. 
