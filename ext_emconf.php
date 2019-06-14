@@ -1,8 +1,8 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'mailmanext',
+    'title' => 'Mailman Extension',
     'description' => 'An extension to manage mailman mailinglists',
-    'category' => 'templates',
+    'category' => 'Plugin',
     'constraints' => [
         'depends' => [
             'typo3' => '8.7.0-9.5.99',

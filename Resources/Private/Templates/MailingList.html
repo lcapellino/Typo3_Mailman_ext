@@ -11,8 +11,6 @@
          	<td align="top">{mailinglist.fqdn_listname}</td>
 			<td align="top">{mailinglist.member_count}</td>
 			<td>
-
-
 				<f:if condition="{mailinglist.userInList}">
 					<f:then>
 						<f:link.action action="unsubscribe" controller="MailmanExt" arguments="{list_id: '{mailinglist.list_id}'}">unsubscribe</f:link.action>
@@ -21,15 +19,10 @@
 						<f:link.action action="subscribe" controller="MailmanExt" arguments="{list_id: '{mailinglist.list_id}'}">subscribe</f:link.action>
 					</f:else>
 				</f:if>
-
-
-
 			</td>
 		</tr>
 	</f:for>
 </table>
 
 
-
 <f:debug>{list}</f:debug>
-
