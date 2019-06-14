@@ -8,6 +8,6 @@ To set the correct Front-End-User email you have to override **/Configuration/Ty
 
 ```
 plugin.tx_mailmanext.settings{
-    usermail = user@mailde
+    usermail = user@mail.de
 }
 ```
