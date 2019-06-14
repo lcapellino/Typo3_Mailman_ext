@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+	elements {
+		newmailman {
+			iconIdentifier = ext_icon
+			title = Mailman
+			description = beschreibung
+			tt_content_defValues {
+				CType = list
+				list_type = mailmanext_pi1
+			}
+		}
+	}
+}
