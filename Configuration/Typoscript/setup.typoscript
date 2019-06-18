@@ -2,14 +2,14 @@ page = PAGE
 
 page.config.contentObjectExceptionHandler = 0
 plugin.tx_mailmanext.settings{
-    usermail = user@mailde
+    usermail = user@mail.de
 }
 
 temp.mailman = USER
 temp.mailman {
     userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
     extensionName = Mailmanext
-    pluginName = Pi1
+    pluginName = Pil
     vendorName = Htwg
     controller = MailmanExt
     action = mailinglist

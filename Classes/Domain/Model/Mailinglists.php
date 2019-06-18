@@ -14,9 +14,23 @@ class Mailinglists extends AbstractEntity{
  	private $mailmanUser;
  	private $mailmanPassword;
  	private $debug;
+ 	private $availableLists;
+ 	private $settings;
 
 	public function userIsSubscribed(){
+
+		
+		$this->availableLists =  explode(',', $this->settings['selectmailinglists']);
+
 		foreach($this->allMailinglists->entries as $globalList){
+			foreach ($this->availableLists as $key => $listID) {
+				if($globalList->list_id == $listID){
+					$globalList->selected = true;
+					break;
+				}else{
+					$globalList->selected = false;
+				}
+			}
 			foreach($this->userMailinglists->entries as $userList){
 				if($globalList->list_id == $userList->list_id){
 					$globalList->userInList = true;
@@ -25,10 +39,12 @@ class Mailinglists extends AbstractEntity{
 					$globalList->userInList = false;
 				}	
 			}
+				
 		}
 	}
 
- 	public function __construct($mail){
+ 	public function __construct($mail, $settings){
+ 		$this->settings = $settings;
  		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mailmanext']);
         $this->mailmanHost = $extensionConfiguration['mailman.']['mailmanhost'];
         $this->mailmanUser = $extensionConfiguration['mailman.']['mailmanuser'];

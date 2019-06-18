@@ -16,8 +16,9 @@ class MailmanExtController extends ActionController{
     */
     public function mailingListAction(){
 		$usermail = $this->settings['usermail'];
-        $list = new Mailinglists($usermail);
+        $list = new Mailinglists($usermail, $this->settings);
         $this->view->assign('list', $list);
+        $this->view->assign('debug', $this);
     }
 
     public function subscribeAction(){

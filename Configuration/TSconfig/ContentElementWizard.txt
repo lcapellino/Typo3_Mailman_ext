@@ -6,7 +6,7 @@ mod.wizards.newContentElement.wizardItems.plugins {
 			description = beschreibung
 			tt_content_defValues {
 				CType = list
-				list_type = mailmanext_pi1
+				list_type = mailmanext_pil
 			}
 		}
 	}

@@ -1,24 +1,25 @@
-<T3DataStructure>
-    <sheets>
+    <T3DataStructure>
+      <sheets>
         <main>
-           <ROOT>
-               <TCEforms>
-                   <sheetTitle>Einstellungen</sheetTitle>
-               </TCEforms>
-               <type>array</type>
-               <el>
-                    <settings.value>
-                      <TCEforms>
-                        <exclude>1</exclude>
-                        <label>Liter/qm</label>
-                        <config>
-                            <type>input</type>
-                            <size>4</size>
-                        </config>
-                      </TCEforms>
-                    </settings.value>
-               </el>
-           </ROOT>
-       </main>
+         <ROOT>
+           <TCEforms>
+             <sheetTitle>Einstellungen</sheetTitle>
+           </TCEforms>
+           <type>array</type>
+           <el>
+            <settings.selectmailinglists>
+              <TCEforms>
+                <label>sidebyside checkbox</label>
+                <config>
+                  <type>select</type>
+                  <itemsProcFunc>Htwg\Mailmanext\Hooks\ItemsProcFunc->availableMailingLists</itemsProcFunc>
+                  <renderType>selectMultipleSideBySide</renderType>
+                  
+                </config>
+              </TCEforms>
+            </settings.selectmailinglists>
+          </el>
+        </ROOT>
+      </main>
     </sheets>
-</T3DataStructure>
+  </T3DataStructure>
