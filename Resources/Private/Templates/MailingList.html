@@ -12,6 +12,7 @@
 	         	<td align="top">{mailinglist.fqdn_listname}</td>
 				<td align="top">{mailinglist.member_count}</td>
 				<td>
+					<f:comment>Only show Lists that are selected in the Plugin Option</f:comment>
 					<f:if condition="{mailinglist.userInList}">
 						<f:then>
 							<f:link.action action="unsubscribe" controller="MailmanExt" arguments="{list_id: '{mailinglist.list_id}'}">unsubscribe</f:link.action>
