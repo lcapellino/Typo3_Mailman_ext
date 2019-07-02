@@ -2,8 +2,10 @@
 Backend Configuration
 ------------------------
 
-#. After the installation of this extension go to **ADMIN TOOLS** in your TYPO3 Backend. Next, click on **Extensions** and search **mailmanext**. You should see the Mailman Extension. 
-#. Click on the Configure-Button to set the values. The values are preconfigured to the standard Mailman installation. 
+#. After the installation of this extension go to **ADMIN TOOLS** in your TYPO3 Backend. Next, click on **Extensions** and search **mailmanext**. You should see the Mailman Extension
+
+#. Click on the Configure-Button to set the values. The values are preconfigured to the standard Mailman installation
+
 #. Set the **usermail** so the Plugin can un/subscribe the correct email. To do this, go to the Plugin folder of your TYPO3 installtation. Now navigate to mailmanext/Configuration/Typoscript/setup.typoscript and set the **usermail** variable with your frontenduser mail 
 ::
 	plugin.tx_mailmanext.settings{
@@ -17,7 +19,8 @@ After you added the Plugin to a page you should select the mailinglist you want 
 
 Template editing
 ------------------------
-#. Mailman Extension comes with a default HTML template. The Template is located under mailmanext/Resources/Private/Templates/MailingList.html (**do not change the name!**). Feel free to edit this so it fits your needs. 
+
+#. Mailman Extension comes with a default HTML template. The Template is located under mailmanext/Resources/Private/Templates/MailingList.html (**do not change the name!**). Feel free to edit this so it fits your needs
 ::
 	<table border="1" cellspacing="1" cellpadding="5">
 		<tr>
@@ -47,6 +50,7 @@ Template editing
 			</f:if>
 		</f:for>
 	</table>
+
 #. Inside the for loop you can select the following values from the mailinglists
 ::
 	mailinglist.description
