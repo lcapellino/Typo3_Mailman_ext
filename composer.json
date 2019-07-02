@@ -17,5 +17,6 @@
 	"extra": {
 		"typo3/cms": {
 		    "extension-key": "mailmanext"
+		}
     }
 }
