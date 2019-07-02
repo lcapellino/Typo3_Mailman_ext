@@ -1,19 +1,21 @@
 {
     "name": "htwg/mailmanext",
     "type": "typo3-cms-extension",
-    "description": "",
-    "homepage": "https://htwg-konstanz.de",
+    "description": "This Extension lets your users un/subscribe to your mailinglists on your Mailman Server",
+    "homepage": "https://extensions.typo3.org/extension/mailmanext/",
     "license": ["GPL-2.0-or-later"],
-    "keywords": ["TYPO3 CMS"],
+    "keywords": ["TYPO3 CMS","Mailman","mailmanext","Email","mail","Mailinglists","mailinglist"],
     "version": "1.0.0",
     "require": {
-        "typo3/cms-core": "^8.7 || ^9.5",
-        "typo3/cms-rte-ckeditor": "^8.7 || ^9.5",
-        "bk2k/bootstrap-package": "^10.0"
+        "typo3/cms-core": "^8.7"
     },
     "autoload": {
         "psr-4": {
             "Htwg\\Mailmanext\\": "Classes/"
         }
+    },
+	"extra": {
+		"typo3/cms": {
+		    "extension-key": "mailmanext"
     }
 }
