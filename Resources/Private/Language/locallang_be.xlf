@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-07-29T23:09:18Z" product-name="mailmanext">
+		<header/>
+		<body>
+			<trans-unit id="pi1_title" xml:space="preserve">
+				<source>Mailman Extension</source>
+			</trans-unit>
+			<trans-unit id="pi1_wizard_description" xml:space="preserve">
+				<source>Display Mailinglists</source>
+			</trans-unit>
+			<trans-unit id="flexforms_tab.general" xml:space="preserve">
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="flexforms_tab.advanced" xml:space="preserve">
+				<source>Advanced</source>
+			</trans-unit>
+			<trans-unit id="flexforms_general.mode" xml:space="preserve">
+				<source>Mode</source>
+			</trans-unit>
+			<trans-unit id="flexforms_general.categories" xml:space="preserve">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="flexforms_general.storage" xml:space="preserve">
+				<source>Storage</source>
+			</trans-unit>
+			<trans-unit id="flexforms_advanced.limit" xml:space="preserve">
+				<source>Limit</source>
+			</trans-unit>
+			<trans-unit id="flexforms_advanced.order" xml:space="preserve">
+				<source>Order by field</source>
+			</trans-unit>
+			<trans-unit id="flexforms_advanced.sort_direction" xml:space="preserve">
+				<source>Sort direction</source>
+			</trans-unit>
+			<trans-unit id="flexforms_advanced.sort_direction.ascending" xml:space="preserve">
+				<source>Ascending</source>
+			</trans-unit>
+			<trans-unit id="flexforms_advanced.sort_direction.descending" xml:space="preserve">
+				<source>Descending</source>
+			</trans-unit>
+			<trans-unit id="plugin_preview.no_storage_set" xml:space="preserve">
+				<source>Storage not set!</source>
+			</trans-unit>
+			<trans-unit id="plugin_preview.elements_total" xml:space="preserve">
+				<source>Total elements</source>
+			</trans-unit>
+			<trans-unit id="plugin_preview.available" xml:space="preserve">
+				<source>available</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
