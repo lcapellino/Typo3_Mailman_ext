@@ -1,15 +1,16 @@
 <table border="1" cellspacing="1" cellpadding="5">
 	<tr>
-		<td>Listen name</td>
-		<td>Full Qualified Domain Name</td>
-		<td>Anzahl Nutzer</td>
-		<td>Einschreiben</td>	
+		<td>Name</td>
+		<td>Full qualified domain name</td>
+		<td>Member count</td>
+		<td>Un/Subscribe</td>	
 	</tr>
 	<f:for each="{list.allMailinglists.entries}" as="mailinglist">
 		<f:if condition="{mailinglist.selected}">
 			<tr>
 				<td align="top">{mailinglist.display_name}</td>	
 				<td align="top">{mailinglist.fqdn_listname}</td>
+	      <td align="top">{mailinglist.member_count}</td>
 				<td>
 					<f:comment>Only show Lists that are selected in the Plugin Option</f:comment>
 					<f:if condition="{mailinglist.userInList}">

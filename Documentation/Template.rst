@@ -2,7 +2,7 @@
 Template editing
 ================
 
-Mailman Extension comes with a default HTML template. The Template is located under mailmanext/Resources/Private/Templates/MailingList.html (**do not change the name!**). Feel free to edit this so it fits your needs
+Mailman Extension comes with a default HTML template. The Template is located under mailmanext/Resources/Private/Templates/MailingList.html (**do not change the name!**). Feel free to edit this so it fits your needs.
 
 .. highlight:: html
 
@@ -39,9 +39,9 @@ Mailman Extension comes with a default HTML template. The Template is located un
 
 
 
-Inside the for loop you can select the following values from the mailinglists
+Inside the for loop you can select the following values from the mailinglists. These are all values from Mailman. 
 ::
-  mailinglist.description
+	mailinglist.description
 
 	mailinglist.display_name
 
@@ -63,8 +63,4 @@ Inside the for loop you can select the following values from the mailinglists
 
 	mailinglist.selected
 
-These are all values from Mailman. To get more debug information uncomment the debug command 
-::
-	<f:comment>
-		<f:debug>{list}</f:debug>
-	</f:comment>
+
