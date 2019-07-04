@@ -3,13 +3,15 @@ Template editing
 ================
 
 Mailman Extension comes with a default HTML template. The Template is located under mailmanext/Resources/Private/Templates/MailingList.html (**do not change the name!**). Feel free to edit this so it fits your needs
+
+.. highlight:: html
 ::
 	<table border="1" cellspacing="1" cellpadding="5">
 	  <tr>
 	    <td>Listen name</td>
 	    <td>Full Qualified Domain Name</td>
 		  <td>Anzahl Nutzer</td>
-		  <td>Einschreiben</td>	
+		  <td>Einschreiben</td>
     </tr>
 		<f:for each="{list.allMailinglists.entries}" as="mailinglist">
 			<f:if condition="{mailinglist.selected}">
