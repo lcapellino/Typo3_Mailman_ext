@@ -51,3 +51,4 @@ Documentation for ext:mailmanext
 
     Extension
     Plugin
+	Template
