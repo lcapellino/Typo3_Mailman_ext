@@ -9,43 +9,41 @@ use Htwg\Mailmanext\Domain\Model\Unsubscribe;
 
 
 class MailmanExtController extends ActionController{
- 
-    /*This function shows all Mailinglists by 
-    * showing the view of Mailingslists from
-    * /Resources/Private/Templates/MailingList.html
-    */
-    public function mailingListAction(){
+
+	/*
+	This function shows all Mailinglists by 
+	showing the view of Mailingslists from
+	/Resources/Private/Templates/MailingList.html
+	*/
+	public function mailingListAction(){
 		$usermail = $this->settings['usermail'];
-        $list = new Mailinglists($usermail, $this->settings);
-        $this->view->assign('list', $list);
-        $this->view->assign('debug', $this);
-    }
+		$list = new Mailinglists($usermail, $this->settings);
+		$this->view->assign('list', $list);
+		$this->view->assign('debug', $this);
+	}
 
-    public function subscribeAction(){
-        //get the current frontend usermail
-        $usermail = $this->settings['usermail'];
+	public function subscribeAction(){
+		//get the current frontend usermail
+		$usermail = $this->settings['usermail'];
 
-        //get the list_id from the GET-request
-        $fqdn_list = $this->request->getArgument('list_id');
+		//get the list_id from the GET-request
+		$fqdn_list = $this->request->getArgument('list_id');
 
-        //subscribe user to list
-        $sub =new Subscribe($usermail, $fqdn_list);
+		//subscribe user to list
+		$sub = new Subscribe($usermail, $fqdn_list);
 
-        //redirect to defined url
-        $redirectAddr = $extensionConfiguration['redirectAddr'];
-        $this->redirectToUri($redirectAddr);
-		//$this->view->assign('param', $sub);
-    }
+		//redirect to defined url
+		$redirectAddr = $extensionConfiguration['redirectAddr'];
+		$this->redirectToUri($redirectAddr);
+	}
 
 	public function unsubscribeAction(){
-        $usermail = $this->settings['usermail'];
-        $fqdn_list = $this->request->getArgument('list_id');
-        $sub = new Unsubscribe($usermail, $fqdn_list);
+		$usermail = $this->settings['usermail'];
+		$fqdn_list = $this->request->getArgument('list_id');
+		$sub = new Unsubscribe($usermail, $fqdn_list);
 
-        $redirectAddr = $extensionConfiguration['redirectAddr'];
-        $this->redirectToUri($redirectAddr);
-
-		//$this->view->assign('param', $this->request->getArguments());
-    }
+		$redirectAddr = $extensionConfiguration['redirectAddr'];
+		$this->redirectToUri($redirectAddr);
+	}
 
 }
