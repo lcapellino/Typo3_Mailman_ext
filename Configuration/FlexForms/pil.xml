@@ -1,25 +1,24 @@
-    <T3DataStructure>
-      <sheets>
-        <main>
-         <ROOT>
-           <TCEforms>
-             <sheetTitle>Einstellungen</sheetTitle>
-           </TCEforms>
-           <type>array</type>
-           <el>
-            <settings.selectmailinglists>
-              <TCEforms>
-                <label>sidebyside checkbox</label>
-                <config>
-                  <type>select</type>
-                  <itemsProcFunc>Htwg\Mailmanext\Hooks\ItemsProcFunc->availableMailingLists</itemsProcFunc>
-                  <renderType>selectMultipleSideBySide</renderType>
-                  
-                </config>
-              </TCEforms>
-            </settings.selectmailinglists>
-          </el>
-        </ROOT>
-      </main>
-    </sheets>
-  </T3DataStructure>
+<T3DataStructure>
+  <sheets>
+    <main>
+     <ROOT>
+       <TCEforms>
+         <sheetTitle>Settings</sheetTitle>
+       </TCEforms>
+       <type>array</type>
+       <el>
+        <settings.selectmailinglists>
+          <TCEforms>
+            <label>Mailinglists to show</label>
+            <config>
+              <type>select</type>
+              <itemsProcFunc>Htwg\Mailmanext\Hooks\ItemsProcFunc->availableMailingLists</itemsProcFunc>
+              <renderType>selectMultipleSideBySide</renderType>
+            </config>
+          </TCEforms>
+        </settings.selectmailinglists>
+      </el>
+    </ROOT>
+  </main>
+</sheets>
+</T3DataStructure>
