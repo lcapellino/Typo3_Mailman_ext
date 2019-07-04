@@ -9,7 +9,7 @@ After the installation of this extension go to **ADMIN TOOLS** in your TYPO3 Bac
 
 Click on the Configure-Button to set the values. The values are preconfigured to the standard Mailman installation
 
-Set the **usermail** so the Plugin can un/subscribe the correct email. To do this, go to the Plugin folder of your TYPO3 installtation. Now navigate to mailmanext/Configuration/Typoscript/setup.typoscript and set the **usermail** variable with your frontenduser mail 
+Set the **usermail** so the Plugin can un/subscribe the correct email. To do this, go to the Plugin folder of your TYPO3 installtation. Now navigate to **mailmanext/Configuration/Typoscript/setup.typoscript** and set the **usermail** variable with your frontenduser mail 
 ::
 	plugin.tx_mailmanext.settings{
     	usermail = user@mail.de
