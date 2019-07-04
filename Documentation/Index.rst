@@ -49,5 +49,5 @@ Documentation for ext:mailmanext
 .. toctree::
     :hidden:
 
-    Documentation
-    Support
+    Extension
+    Plugin
