@@ -32,7 +32,7 @@ class Mailinglists extends AbstractEntity{
 				}
 			}
 			foreach($this->userMailinglists->entries as $userList){
-				if($globalList->list_id == $userList->list_id){
+				if($globalList->list_id == $userList->list_id && $userList->role == 'member'){
 					$globalList->userInList = true;
 					break;
 				}else{

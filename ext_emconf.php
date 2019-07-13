@@ -15,12 +15,12 @@ $EM_CONF[$_EXTKEY] = [
 			'Htwg\\Mailmanext\\' => 'Classes'
 		],
 	],
-	'state' => 'alpha',
+	'state' => 'beta',
 	'uploadfolder' => 0,
 	'createDirs' => '',
 	'clearCacheOnLoad' => 1,
 	'author' => 'lucas capellino, mathias kupferschmid',
 	'author_email' => 'lu721cap@htwg-konstanz.de',
 	'author_company' => 'htwg',
-	'version' => '1.1.1',
+	'version' => '1.1.2',
 ];

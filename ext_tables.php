@@ -25,11 +25,6 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['mailmanext_p
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:mailmanext/Configuration/TSconfig/ContentElementWizard.txt">');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-	'mailmanext',
-	'Configuration/TypoScript',
-	'Mailman Extension'
-);
 
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 $iconRegistry->registerIcon(

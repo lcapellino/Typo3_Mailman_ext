@@ -33,6 +33,7 @@ class MailmanExtController extends ActionController{
 		$sub = new Subscribe($usermail, $fqdn_list);
 
 		//redirect to defined url
+		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mailmanext']);
 		$redirectAddr = $extensionConfiguration['redirectAddr'];
 		$this->redirectToUri($redirectAddr);
 	}
@@ -42,6 +43,7 @@ class MailmanExtController extends ActionController{
 		$fqdn_list = $this->request->getArgument('list_id');
 		$sub = new Unsubscribe($usermail, $fqdn_list);
 
+		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mailmanext']);
 		$redirectAddr = $extensionConfiguration['redirectAddr'];
 		$this->redirectToUri($redirectAddr);
 	}

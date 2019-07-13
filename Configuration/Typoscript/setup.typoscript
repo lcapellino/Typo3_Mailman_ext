@@ -12,7 +12,7 @@ temp.mailman {
 	pluginName = Pil
 	vendorName = Htwg
 	controller = MailmanExt
-	action = mailinglist
+	action = mailingList
 
 	view < plugin.tx_mailmanext.view
 	

@@ -5,10 +5,10 @@ defined('TYPO3_MODE') || die('Access denied.');
 	'Htwg.Mailmanext',
 	'Pil',
 	[
-		'MailmanExt' => 'mailingList,subscribe, unsubscribe',
+		'MailmanExt' => 'mailingList,subscribe,unsubscribe',
 	],
 	// non-cacheable actions
 	[
-		'MailmanExt' => 'subscribe, unsubscribe',
+		'MailmanExt' => 'subscribe,unsubscribe,mailingList',
 	],
 );
