@@ -31,14 +31,17 @@ class Mailinglists extends AbstractEntity{
 					$globalList->selected = false;
 				}
 			}
-			foreach($this->userMailinglists->entries as $userList){
-				if($globalList->list_id == $userList->list_id && $userList->role == 'member'){
-					$globalList->userInList = true;
-					break;
-				}else{
-					$globalList->userInList = false;
-				}	
-			}
+      if(is_array($this->userMailinglists->entries)){
+        foreach($this->userMailinglists->entries as $userList){
+				  if($globalList->list_id == $userList->list_id && $userList->role == 'member'){
+					  $globalList->userInList = true;
+					  break;
+				  }else{
+					  $globalList->userInList = false;
+				  }	
+			  }
+      }
+			
 				
 		}
 	}

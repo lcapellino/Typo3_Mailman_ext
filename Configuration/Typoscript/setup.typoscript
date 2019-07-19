@@ -1,8 +1,7 @@
 page = PAGE
 
-page.config.contentObjectExceptionHandler = 0
 plugin.tx_mailmanext.settings{
-	usermail = user@mail.de
+	usermail = notset
 }
 
 temp.mailman = USER
@@ -13,8 +12,7 @@ temp.mailman {
 	vendorName = Htwg
 	controller = MailmanExt
 	action = mailingList
-
 	view < plugin.tx_mailmanext.view
-	
 }
 page.1 < temp.mailman
+

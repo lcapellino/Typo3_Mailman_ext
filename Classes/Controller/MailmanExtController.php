@@ -3,6 +3,7 @@
 namespace Htwg\Mailmanext\Controller;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Htwg\Mailmanext\Domain\Model\Mailinglists;
 use Htwg\Mailmanext\Domain\Model\Subscribe;
 use Htwg\Mailmanext\Domain\Model\Unsubscribe;
@@ -16,10 +17,24 @@ class MailmanExtController extends ActionController{
 	/Resources/Private/Templates/MailingList.html
 	*/
 	public function mailingListAction(){
-		$usermail = $this->settings['usermail'];
-		$list = new Mailinglists($usermail, $this->settings);
-		$this->view->assign('list', $list);
-		$this->view->assign('debug', $this);
+		$testuser = $usermail = $this->settings['usermail'];
+    $fe_user_mail = $GLOBALS['TSFE']->fe_user->user['email'];
+    if(isset($testuser)){
+     // try {
+      $list = new Mailinglists($testuser, $this->settings );
+    /*} catch (\Exception $e){
+      $logger = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Log\\LogManager')->getLogger(__CLASS__);
+      $logger->log(\TYPO3\CMS\Core\Log\LogLevel::ERROR, $e->getMessage());
+    }  */
+		  $this->view->assign('list', $list);
+    }else if(isset($fe_user_mail)){
+      $list = new Mailinglists($fe_user_mail, $this->settings);
+		  $this->view->assign('list', $list);
+    } else {
+      $this->view->assign('list', NULL);
+    }
+    
+		$this->view->assign('debug', $list);
 	}
 
 	public function subscribeAction(){

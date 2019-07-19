@@ -34,15 +34,8 @@ class Unsubscribe extends AbstractEntity
 			'auth' => [$this->mailmanUser,$this->mailmanPassword],
 		];
 		
-		$response = $requestFactory->request($url, 'DELETE', $additionalOptions);
+		$requestFactory->request($url, 'DELETE', $additionalOptions);
 	
-		// Get the content as a string on a successful request
-		if ($response->getStatusCode() === 200) {
-			if (strpos($response->getHeaderLine('Content-Type'), 'application/json') === 0) {
-				$content = $response->getBody()->getContents();
-			}
-		}
-		$this->json =  json_decode($content);
 	
 	}
 }

@@ -39,15 +39,13 @@ class Subscribe extends AbstractEntity
 				'pre_verified' => true,
 			]
 		];
-		
-		$response = $requestFactory->request($url, 'POST', $additionalOptions);
-	
-		// Get the content as a string on a successful request
-		if ($response->getStatusCode() === 200) {
-			if (strpos($response->getHeaderLine('Content-Type'), 'application/json') === 0) {
-				$content = $response->getBody()->getContents();
-			}
-		}
-		$this->json =  json_decode($content);
+		try {
+  		$requestFactory->request($url, 'POST', $additionalOptions);
+    } catch (\Exception $e){
+      $logger = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Log\\LogManager')->getLogger(__CLASS__);
+      $logger->error($e->getMessage());
+    }  
+
+
 	}
 }
