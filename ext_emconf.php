@@ -22,5 +22,5 @@ $EM_CONF[$_EXTKEY] = [
 	'author' => 'lucas capellino, mathias kupferschmid',
 	'author_email' => 'lu721cap@htwg-konstanz.de',
 	'author_company' => 'htwg',
-	'version' => '1.1.2',
+	'version' => '1.1.3',
 ];
