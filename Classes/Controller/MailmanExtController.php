@@ -16,30 +16,28 @@ class MailmanExtController extends ActionController{
 	showing the view of Mailingslists from
 	/Resources/Private/Templates/MailingList.html
 	*/
+  public $usermail = "";
+  
 	public function mailingListAction(){
-		$testuser = $usermail = $this->settings['usermail'];
-    $fe_user_mail = $GLOBALS['TSFE']->fe_user->user['email'];
-    if(isset($testuser)){
-     // try {
-      $list = new Mailinglists($testuser, $this->settings );
-    /*} catch (\Exception $e){
-      $logger = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Log\\LogManager')->getLogger(__CLASS__);
-      $logger->log(\TYPO3\CMS\Core\Log\LogLevel::ERROR, $e->getMessage());
-    }  */
-		  $this->view->assign('list', $list);
-    }else if(isset($fe_user_mail)){
-      $list = new Mailinglists($fe_user_mail, $this->settings);
-		  $this->view->assign('list', $list);
-    } else {
-      $this->view->assign('list', NULL);
-    }
-    
-		$this->view->assign('debug', $list);
+    $usermail = "";
+    if(isset($this->settings['usermail'])){
+      $usermail = $this->settings['usermail'];
+    }else if(isset($GLOBALS['TSFE']->fe_user->user['email'])){
+      $usermail =$GLOBALS['TSFE']->fe_user->user['email'];
+    } 
+
+    $list = new Mailinglists($usermail, $this->settings );
+    $this->view->assign('list', $list);
+		$this->view->assign('debug', $this);
 	}
 
 	public function subscribeAction(){
-		//get the current frontend usermail
-		$usermail = $this->settings['usermail'];
+    $usermail = "";
+    if(isset($this->settings['usermail'])){
+      $usermail = $this->settings['usermail'];
+    }else if(isset($GLOBALS['TSFE']->fe_user->user['email'])){
+      $usermail =$GLOBALS['TSFE']->fe_user->user['email'];
+    } 
 
 		//get the list_id from the GET-request
 		$fqdn_list = $this->request->getArgument('list_id');
@@ -50,11 +48,17 @@ class MailmanExtController extends ActionController{
 		//redirect to defined url
 		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mailmanext']);
 		$redirectAddr = $extensionConfiguration['redirectAddr'];
+    
 		$this->redirectToUri($redirectAddr);
 	}
 
 	public function unsubscribeAction(){
-		$usermail = $this->settings['usermail'];
+    $usermail = "";
+    if(isset($this->settings['usermail'])){
+      $usermail = $this->settings['usermail'];
+    }else if(isset($GLOBALS['TSFE']->fe_user->user['email'])){
+      $usermail =$GLOBALS['TSFE']->fe_user->user['email'];
+    } 
 		$fqdn_list = $this->request->getArgument('list_id');
 		$sub = new Unsubscribe($usermail, $fqdn_list);
 
