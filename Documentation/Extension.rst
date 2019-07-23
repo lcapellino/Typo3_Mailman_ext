@@ -12,7 +12,7 @@ Before the extension can show any Mailinglists, you need to go to into the confi
                 :alt: alt="Extension Configuration"
 
 
-Per Default, this Extension will take the mail currently active in your front end data ($GLOBALS['TSFE']->fe_user->user['email']). If you need to get the email data from somewere else, you need to change lines **25**,**26**,**38**,**39**, **59** and **60** in typo3conf/ext/mailmanext/Classes/Controller/MailmanExtController and replace $GLOBALS['TSFE']->fe_user->user['email'] with the source of the email you want to be used.
+Per Default, this Extension will take the mail currently active in your front end data ($GLOBALS['TSFE']->fe_user->user['email']). If you need to get the email data from somewere else, you need to change lines **25** , **26** , **38** , **39** , **59** and **60** in typo3conf/ext/mailmanext/Classes/Controller/MailmanExtController and replace $GLOBALS['TSFE']->fe_user->user['email'] with the source of the email you want to be used.
 
 Add the plugin to the desired page and follow the instructions in the tab **plugin configuration** 
 to add the mailinglists you want displayed. The selected mailinglists should now be displayed on your page.
