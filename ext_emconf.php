@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = [
 			'Htwg\\Mailmanext\\' => 'Classes'
 		],
 	],
-	'state' => 'beta',
+	'state' => 'stable',
 	'uploadfolder' => 0,
 	'createDirs' => '',
 	'clearCacheOnLoad' => 1,
