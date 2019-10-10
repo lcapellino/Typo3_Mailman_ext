@@ -27,46 +27,22 @@ class ListController extends ActionController{
 	}
 
 	public function listAction(){
-		$usermail = "";
-		if(isset($this->settings['usermail'])){
-			$usermail = $this->settings['usermail'];
-		}else if(isset($GLOBALS['TSFE']->fe_user->user['email'])){
-			$usermail =$GLOBALS['TSFE']->fe_user->user['email'];
-		} 
-
-		$list = new Mailinglists($usermail, $this->settings, $this->mailmanConfig);
+		
+		$this->setUserMail();
+		$list = new Mailinglists($this->usermail, $this->settings, $this->mailmanConfig);
 		$this->view->assign('list', $list);
 		$this->view->assign('debug', $this);
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public function subscribeAction(){
-		$usermail = "";
-		if(isset($this->settings['usermail'])){
-			$usermail = $this->settings['usermail'];
-		}else if(isset($GLOBALS['TSFE']->fe_user->user['email'])){
-			$usermail =$GLOBALS['TSFE']->fe_user->user['email'];
-		} 
+		
+		$this->setUserMail();
 
 		//get the list_id from the GET-request
 		$fqdn_list = $this->request->getArgument('list_id');
 
 		//subscribe user to list
-		$sub = new Subscribe($usermail, $fqdn_list, $this->mailmanConfig);
+		$sub = new Subscribe($this->usermail, $fqdn_list, $this->mailmanConfig);
 
 		//redirect to defined url
 		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mailmanext']);
@@ -75,31 +51,24 @@ class ListController extends ActionController{
 		$this->redirectToUri($redirectAddr);
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
 	public function unsubscribeAction(){
-		$usermail = "";
-		if(isset($this->settings['usermail'])){
-			$usermail = $this->settings['usermail'];
-		}else if(isset($GLOBALS['TSFE']->fe_user->user['email'])){
-			$usermail =$GLOBALS['TSFE']->fe_user->user['email'];
-		} 
+		$this->setUserMail();
 		$fqdn_list = $this->request->getArgument('list_id');
-		$sub = new Unsubscribe($usermail, $fqdn_list, $this->mailmanConfig);
+		$sub = new Unsubscribe($this->usermail, $fqdn_list, $this->mailmanConfig);
 
 		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mailmanext']);
 		$redirectAddr = $extensionConfiguration['redirectAddr'];
 		$this->redirectToUri($redirectAddr);
+	}
+
+	//If you're not using the TSFE usermail you should override this function
+	public function setUserMail(){
+
+		if(isset($this->settings['usermail'])){
+			$this->usermail = $this->settings['usermail'];
+		}else if(isset($GLOBALS['TSFE']->fe_user->user['email'])){
+			$this->usermail =$GLOBALS['TSFE']->fe_user->user['email'];
+		} 
 	}
 
 	/**
