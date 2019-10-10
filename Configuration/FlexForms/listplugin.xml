@@ -12,7 +12,7 @@
 							<label>Mailinglists to show</label>
 							<config>
 								<type>select</type>
-								<itemsProcFunc>Htwg\Mailmanext\Hooks\ItemsProcFunc->availableMailingLists</itemsProcFunc>
+								<itemsProcFunc>Htwg\Mailmanext\Controller\ListController->availableMailingLists</itemsProcFunc>
 								<renderType>selectMultipleSideBySide</renderType>
 							</config>
 						</TCEforms>

@@ -3,12 +3,12 @@ defined('TYPO3_MODE') || die('Access denied.');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	'Htwg.Mailmanext',
-	'Pil',
+	'listplugin',
 	[
-		'MailmanExt' => 'mailingList,subscribe,unsubscribe',
+		'List' => 'list,subscribe,unsubscribe',
 	],
 	// non-cacheable actions
 	[
-		'MailmanExt' => 'subscribe,unsubscribe,mailingList',
+		'List' => 'subscribe,unsubscribe,list',
 	]
 );

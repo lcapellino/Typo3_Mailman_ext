@@ -3,10 +3,10 @@ mod.wizards.newContentElement.wizardItems.plugins {
 		newmailman {
 			iconIdentifier = ext_icon
 			title = Mailman
-			description = beschreibung
+			description = Let your users subscribe to your Mailman mailingslists
 			tt_content_defValues {
 				CType = list
-				list_type = mailmanext_pil
+				list_type = mailmanext_listplugin
 			}
 		}
 	}

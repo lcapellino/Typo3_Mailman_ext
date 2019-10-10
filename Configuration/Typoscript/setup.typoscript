@@ -8,10 +8,10 @@ temp.mailman = USER
 temp.mailman {
 	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
 	extensionName = Mailmanext
-	pluginName = Pil
+	pluginName = listplugin
 	vendorName = Htwg
-	controller = MailmanExt
-	action = mailingList
+	controller = List
+	action = list
 	view < plugin.tx_mailmanext.view
 }
 page.1 < temp.mailman

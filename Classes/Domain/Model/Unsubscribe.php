@@ -9,29 +9,24 @@ class Unsubscribe extends AbstractEntity
 {
 	public $mail='';
 	public $list_id;
-	private $mailmanHost;
-	private $mailmanUser;
-	private $mailmanPassword;
+	private $mailmanConfig;
 
 
-	public function __construct($mail,$list_id ){
-		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mailmanext']);
-		$this->mailmanHost = $extensionConfiguration['mailman.']['mailmanhost'];
-		$this->mailmanUser = $extensionConfiguration['mailman.']['mailmanuser'];
-		$this->mailmanPassword = $extensionConfiguration['mailman.']['mailmanpassword'];
+	public function __construct($mail,$list_id, $mailmanConfig){
+		$this->$mailmanConfig = $mailmanConfig;
 		$this->mail = $mail;
 		$this->list_id = $list_id;
 
 
 		$requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
-		$url = $this->mailmanHost. 'lists/'.$this->list_id.'/member/'.$this->mail;
+		$url = $this->$mailmanConfig->mailmanHost. 'lists/'.$this->list_id.'/member/'.$this->mail;
 		
 		$additionalOptions = [
 			// Additional headers for this specific request
 			'headers' => ['Cache-Control' => 'no-cache'],
 			// Additional options, see http://docs.guzzlephp.org/en/latest/request-options.html
 			'allow_redirects' => false,
-			'auth' => [$this->mailmanUser,$this->mailmanPassword],
+			'auth' => [$this->$mailmanConfig->mailmanUser,$this->$mailmanConfig->mailmanPassword],
 		];
 		
 		$requestFactory->request($url, 'DELETE', $additionalOptions);

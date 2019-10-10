@@ -6,20 +6,20 @@ defined('TYPO3_MODE') or die();
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	'mailmanext',
-	'Pil',
+	'listplugin',
 	'Mailman Mailinglists',
 	'EXT:mailmanext/ext_icon.png'
 );
 
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['mailmanext_pil'] = 'select_key,pages,recursive';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['mailmanext_listplugin'] = 'select_key,pages,recursive';
 
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['mailmanext_pil'] = 'pi_flexform';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['mailmanext_listplugin'] = 'pi_flexform';
 
 
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-	'mailmanext_pil',
-	'FILE:EXT:mailmanext/Configuration/FlexForms/pil.xml'
+	'mailmanext_listplugin',
+	'FILE:EXT:mailmanext/Configuration/FlexForms/listplugin.xml'
 );
 
 
