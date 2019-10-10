@@ -27,10 +27,10 @@ Mailman Extension comes with a default HTML template. The Template is located un
 				        <f:comment>Only show Lists that are selected in the Plugin Option</f:comment>
 				        <f:if condition="{mailinglist.userInList}">
 					        <f:then>
-						        <f:link.action action="unsubscribe" controller="MailmanExt" arguments="{list_id: '{mailinglist.list_id}'}">unsubscribe</f:link.action>
+						        <f:link.action action="unsubscribe" controller="List" arguments="{list_id: '{mailinglist.list_id}'}">unsubscribe</f:link.action>
 					        </f:then>
 					        <f:else>
-						        <f:link.action action="subscribe" controller="MailmanExt" arguments="{list_id: '{mailinglist.list_id}'}">subscribe</f:link.action>
+						        <f:link.action action="subscribe" controller="List" arguments="{list_id: '{mailinglist.list_id}'}">subscribe</f:link.action>
 					        </f:else>
 				        </f:if>
 			        </td>
