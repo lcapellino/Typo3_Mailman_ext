@@ -7,7 +7,7 @@
 	      <td>Member count</td>
 	      <td>Un/Subscribe</td>	
       </tr>
-      <f:for each="{list.allMailinglists.entries}" as="mailinglist">
+      <f:for each="{list.entries}" as="mailinglist">
 	      <f:if condition="{mailinglist.selected}">
 		      <tr>
 			      <td align="top">{mailinglist.display_name}</td>	
@@ -38,3 +38,4 @@
   </f:else>
 </f:if>
 
+<f:debug>{debug}</f:debug>

@@ -10,6 +10,7 @@ class MailmanPluginConfig extends AbstractEntity
 	public $mailmanHost;
 	public $mailmanUser;
 	public $mailmanPassword;
+	public $redirectaddr;
 
 
 	public function __construct(){
@@ -17,6 +18,6 @@ class MailmanPluginConfig extends AbstractEntity
 		$this->mailmanHost = $extensionConfiguration['mailman.']['mailmanhost'];
 		$this->mailmanUser = $extensionConfiguration['mailman.']['mailmanuser'];
 		$this->mailmanPassword = $extensionConfiguration['mailman.']['mailmanpassword'];
-		
+		$this->redirectaddr = $extensionConfiguration['redirectAddr'];
 	}
 }
