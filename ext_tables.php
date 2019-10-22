@@ -7,7 +7,14 @@ defined('TYPO3_MODE') or die();
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	'mailmanext',
 	'listplugin',
-	'Mailman Mailinglists',
+	'Mailman multiple Mailinglists',
+	'EXT:mailmanext/ext_icon.png'
+);
+
+TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'mailmanext',
+	'singlelistplugin',
+	'Mailman single Mailinglist',
 	'EXT:mailmanext/ext_icon.png'
 );
 
@@ -16,10 +23,19 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['mailmane
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['mailmanext_listplugin'] = 'pi_flexform';
 
 
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['mailmanext_singlelistplugin'] = 'select_key,pages,recursive';
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['mailmanext_singlelistplugin'] = 'pi_flexform';
+
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
 	'mailmanext_listplugin',
 	'FILE:EXT:mailmanext/Configuration/FlexForms/listplugin.xml'
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+	'mailmanext_singlelistplugin',
+	'FILE:EXT:mailmanext/Configuration/FlexForms/singlelistplugin.xml'
 );
 
 

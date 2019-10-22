@@ -9,66 +9,66 @@ use Htwg\Mailmanext\Domain\Model\MailmanConfig;
 class MailmanService extends AbstractEntity{     
 
 
-	private $mail;
-	private $mailmanconfig;
-	private $settings;
+	private $mailmanHost;
+	private $mailmanUser;
+	private $mailmanPassword;
 
 
 
-	public function __construct($mail, $settings, $mailmanConfig){
-		$this->settings = $settings;
-		$this->mailmanConfig = $mailmanConfig;
-		$this->mail = $mail;
+	public function __construct(){
+		$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mailmanext']);
+		$this->mailmanHost = $extensionConfiguration['mailman.']['mailmanhost'];
+		$this->mailmanUser = $extensionConfiguration['mailman.']['mailmanuser'];
+		$this->mailmanPassword = $extensionConfiguration['mailman.']['mailmanpassword'];
 	}
 
-	public function getMailinglists(){
+	/**
+	 * This function returns a single mailinglist
+	 *
+	 * @param string $listID is the list to return
+	 */
+	public function getSingleMailinglist ($listID) {
+		$listURL = $this->buildURL('lists/'.$listID);
+		$mailinglist = $this->request($listURL, 'GET', null);
+
+		return $mailinglist;
+	}
+
+	/**
+	 * This function returns all mailinglists from the Mailman API
+	 *
+	 */
+	public function getAllMailinglists () {
 		//get all maillinglists from Mailman
 		$listURL = $this->buildURL('lists');
 		$allMailinglists = $this->request($listURL, 'GET', null);
-
-		//get all mailinglists to wich the user is subscribed
-		$subscribedListsURL = $this->buildURL('members/find?subscriber='. $this->mail);
-		$userSubscribedMailinglists = $this->request($subscribedListsURL, 'GET', null);
-
-		//add the SELECTED and USERINLIST attribute
-		$allMailinglistsWithAttributes = $this->getListWithSelectedAndUserInListAttr($allMailinglists, $userSubscribedMailinglists);
-		return $allMailinglistsWithAttributes;
-	}
-
-	
-	private function getListWithSelectedAndUserInListAttr($allMailinglists, $userSubscribedMailinglists){
-		//get the selected mailinglists from the plugin 
-		$availableLists =  explode(',', $this->settings['selectmailinglists']);
-
-		foreach($allMailinglists->entries as $allMailinglistsEntry){
-			foreach ($availableLists as $key => $listID) {
-				//checks if the list is selected 
-				if($allMailinglistsEntry->list_id == $listID){
-					$allMailinglistsEntry->selected = true;
-					break;
-				}else{
-					$allMailinglistsEntry->selected = false;
-				}
-			}
-			if(is_array($userSubscribedMailinglists->entries)){
-				foreach($userSubscribedMailinglists->entries as $userList){
-					//checks if the user is subscribed to the list
-					if($allMailinglistsEntry->list_id == $userList->list_id && $userList->role == 'member'){
-						$allMailinglistsEntry->userInList = true;
-						break;
-					}else{
-						$allMailinglistsEntry->userInList = false;
-					}	
-				}
-			}
-		}
 		return $allMailinglists;
 	}
 
+	
 
-	public function subscribe($ListIdToSubscribe){
+	/**
+	 * This function returns all mailinglists where the email is subscribed to
+	 *
+	 * @param string $email the email to search after
+	 */
+
+	public function getUserSubscriptions($email){
+		$subscribedListsURL = $this->buildURL('members/find?subscriber='. $email);
+		$userSubscribedMailinglists = $this->request($subscribedListsURL, 'GET', null);
+		return $userSubscribedMailinglists;
+
+	}
+
+	/**
+	 * This function subcribes an email to a mailinglist
+	 *
+	 * @param string $ListIdToSubscribe the id of the list 
+	 * @param string $email the email to subscribe
+	 */
+	public function subscribe($ListIdToSubscribe, $email){
 		$url = $this->buildURL('members');
-		$formParams = ['subscriber' => $this->mail,
+		$formParams = ['subscriber' => $email,
 				'list_id' => $ListIdToSubscribe,
 				'display_name' => null,
 				'pre_confirmed' => true,
@@ -78,18 +78,19 @@ class MailmanService extends AbstractEntity{
 	}
 
 	/**
-	 * This function unsubscribes the given mail from the list
+	 * This function unsubscribes the given email from the list
 	 *
-	 * @param string $ListIdToUnsubscribe is the id from the mailinglist to unsubscribe from
+	 * @param string $ListIdToUnsubscribe is the id of the list
+	 * @param string $email the email to unsubscribe
 	 */
 
-	public function unsubscribe($ListIdToUnsubscribe){
-		$url = $this->buildURL('lists/'.$ListIdToUnsubscribe.'/member/'.$this->mail);
+	public function unsubscribe($ListIdToUnsubscribe, $email){
+		$url = $this->buildURL('lists/'.$ListIdToUnsubscribe.'/member/'.$email);
 		$this->request($url, 'DELETE', null);
 	}
 
 	/**
-	 * make a request to the Mailman REST-API
+	 * make a request to the Mailman REST-API and returns the deocded JSON
 	 *
 	 * @param string $url is the url to the REST-API
 	 * @param string $method is the http method
@@ -101,7 +102,7 @@ class MailmanService extends AbstractEntity{
 		$additionalOptions = [
 		'headers' => ['Cache-Control' => 'no-cache'],
 		'allow_redirects' => false,
-		'auth' => [$this->mailmanConfig->mailmanUser,$this->mailmanConfig->mailmanPassword],
+		'auth' => [$this->mailmanUser,$this->mailmanPassword],
 		];
 			
 
@@ -128,7 +129,7 @@ class MailmanService extends AbstractEntity{
 	 */
 
 	private function buildURL($path){
-		return $this->mailmanConfig->mailmanHost. $path;
+		return $this->mailmanHost. $path;
 	}
 	
 }

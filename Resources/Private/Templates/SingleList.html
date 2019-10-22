@@ -1,0 +1,18 @@
+<f:if condition="{mailinglist}">
+  <f:then>
+    
+	<f:form action="singleListSubscribe" controller="List"  enctype="multipart/form-data">
+		<f:form.hidden name="list_id" value="{mailinglist.list_id}" />
+		Subscribe to: {mailinglist.fqdn_listname}
+		<f:form.textfield name="mail" />
+		<f:form.submit value="Subscribe" />
+	</f:form>
+  </f:then>
+  <f:else>
+      ERR: no mailinglist object.
+  </f:else>
+</f:if>
+<f:comment>
+<f:debug>{debug}</f:debug>
+
+</f:comment>

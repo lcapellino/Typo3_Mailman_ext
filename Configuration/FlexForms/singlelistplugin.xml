@@ -1,0 +1,24 @@
+<T3DataStructure>
+	<sheets>
+		<main>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>SingleListPlugin settings</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.selectsinglemailinglist>
+						<TCEforms>
+							<label>Select only one Mailinglist and let the user subscribe</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>Htwg\Mailmanext\Controller\ListController->availableMailingLists</itemsProcFunc>
+								<renderType>selectSingle</renderType>
+							</config>
+						</TCEforms>
+					</settings.selectsinglemailinglist>
+				</el>
+			</ROOT>
+		</main>
+	</sheets>
+</T3DataStructure>

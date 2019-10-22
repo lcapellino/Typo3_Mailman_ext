@@ -5,7 +5,7 @@
 	"homepage": "https://extensions.typo3.org/extension/mailmanext/",
 	"license": ["GPL-2.0-or-later"],
 	"keywords": ["TYPO3 CMS","Mailman","mailmanext","Email","mail","Mailinglists","mailinglist"],
-	"version": "1.1.4",
+	"version": "1.2.0",
 	"require": {
 		"typo3/cms-core": "^8.7"
 	},

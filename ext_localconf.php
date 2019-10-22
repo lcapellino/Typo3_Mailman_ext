@@ -5,10 +5,22 @@ defined('TYPO3_MODE') || die('Access denied.');
 	'Htwg.Mailmanext',
 	'listplugin',
 	[
-		'List' => 'list,subscribe,unsubscribe',
+		'List' => 'multipleList,subscribe,unsubscribe',
 	],
 	// non-cacheable actions
 	[
-		'List' => 'subscribe,unsubscribe,list',
+		'List' => 'multipleList,subscribe,unsubscribe',
+	]
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Htwg.Mailmanext',
+	'singlelistplugin',
+	[
+		'List' => 'singlelist,singleListSubscribe',
+	],
+	// non-cacheable actions
+	[
+		'List' => 'singlelist,singleListSubscribe',
 	]
 );
