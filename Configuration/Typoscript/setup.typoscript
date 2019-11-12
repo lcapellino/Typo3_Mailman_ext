@@ -1,31 +1,3 @@
-page = PAGE
-
 plugin.tx_mailmanext.settings{
 	usermail = notset
 }
-
-temp.multipleList = USER
-temp.multipleList {
-	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-	extensionName = Mailmanext
-	pluginName = listplugin
-	vendorName = Htwg
-	controller = List
-	action = multipleList
-	view < plugin.tx_mailmanext.view
-}
-
-temp.singleList = USER
-temp.singleList {
-	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-	extensionName = Mailmanext
-	pluginName = singlelistplugin
-	vendorName = Htwg
-	controller = List
-	action = singleList
-	view < plugin.tx_mailmanext.view
-}
-
-page.1 < temp.multipleList
-page.1 < temp.singleList
-
